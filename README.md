@@ -2,11 +2,43 @@
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+1. One time install of message-store-level-v2 patch (from root)
+```
+cd message-store-level-v2
+npm install
+node bundle.js
+```
+
+2. Running the DWN (from root)
+```
+cd dwnserver
+npm install --install-links
+node src/index.js
+```
+
+3. System dependencies
+
+This build depends on the [`g++`](https://man7.org/linux/man-pages/man1/g++.1.html) compiler, GNU's C++ compiler impl. When not available on the system, you may find in your error logs:
+
+```
+npm ERR! make: g++: No such file or directory
+```
+
+To fix, ensure `g++` is available on your system:
+
+### MacOS
+Install [Xcode Command Line tools](https://mac.install.guide/commandlinetools/4.html).
+
+### Linux
+
+#### Fedora / RHEL
+`sudo dnf install -y g++`
+
+For other platforms, use your appropriate repository manager, for instance `yum`, `apt-get`, or `deb`.
+
+### Windows
+
+In Windows Subsystem for Linux (WSL): `sudo apt-get install build-essential gdb`. (Untested; please open issue or PR to validate/correct and update this documentation!)
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
