@@ -4,7 +4,6 @@ WORKDIR /dwn-aggregator
 
 COPY package.json entrypoint.sh ./
 COPY src ./src
-COPY resources ./resources
 
 # DWN's levelDB has issues running on m1, so we have to install prerequisites and build node deps
 # from source
@@ -12,4 +11,4 @@ COPY resources ./resources
 RUN npm install
 
 ENTRYPOINT [ "/dwn-aggregator/entrypoint.sh" ]
-EXPOSE 3000g
+EXPOSE 3000
