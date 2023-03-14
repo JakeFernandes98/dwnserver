@@ -2,18 +2,17 @@
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
 # Getting Started
-1. One time install of message-store-level-v2 patch (from root)
+1. Using Docker
 ```
-cd message-store-level-v2
-npm install
-node bundle.js
+docker build -t dwn-aggregator .
+docker container run --init --rm --name dwn-aggregator -p 3000:3000 dwn-aggregator
 ```
 
-2. Running the DWN (from root)
+2. Running locally
 ```
-cd dwnserver
-npm install --install-links
+npm install
 node src/index.js
+ngrok http 3000
 ```
 
 3. System dependencies
