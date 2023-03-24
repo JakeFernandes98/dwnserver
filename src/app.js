@@ -12,6 +12,7 @@ app.use(cors());
 app.post('/dwn', express.json({ type: '*/*' }), async (req, res) => {
   const result = await dwn.processMessage(req.body);
   console.log(new Date(), '\n',  '/dwn', '\n',req.body ,'\n',JSON.stringify(result));
+  console.log(req.body.authorization)
 
   return res.status(result.status.code).json(result);
 });
