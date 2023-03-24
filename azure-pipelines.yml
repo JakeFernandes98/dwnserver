@@ -2,8 +2,12 @@
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
+# specific branch build with batching
 trigger:
-- master
+  batch: true
+  branches:
+    include:
+    - main
 
 resources:
 - repo: self
@@ -37,3 +41,4 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+          latest
